@@ -11,6 +11,8 @@ builder.Services.AddDbContext<LojaDbContext>(options => options.UseMySql(connect
 
 var app = builder.Build();
 
+/**************************    PRODUTO    *****************************************/
+
 /*
 Endpoint para criar um novo produto na base de dados
 */
@@ -74,7 +76,7 @@ app.MapPut("/produtos/{id}", async (int id, LojaDbContext dbContext, Produto upd
     return Results.Ok(existingProduto);
 });
 
-
+/**************************    CLIENTE    *****************************************/
 
 /*
 EndPoint para criação de novos clientes
@@ -128,6 +130,61 @@ app.MapPut("/clientes/{id}", async (int id, LojaDbContext dbContext, Cliente upd
     return Results.Ok(existingCliente);
 });
 
+/**************************    FORNECEDOR    *****************************************/
+
+/*
+EndPoint para criação de novos clientes
+*/
+app.MapPost("/createfornecedor", async (LojaDbContext dbContext, Fornecedor newFornecedor) =>
+{
+    dbContext.Fornecedores.Add(newFornecedor);
+    await dbContext.SaveChangesAsync();
+    return Results.Created($"/createfornecedor/{newFornecedor.Id}", newFornecedor);
+});
+
+/*
+Endpoint para consultar todos os produtos da base de dados
+*/
+app.MapGet("/fornecedores", async (LojaDbContext dbContext) =>
+{
+    var fornecedores = await dbContext.Fornecedores.ToListAsync();
+    return Results.Ok(fornecedores);
+});
+
+
+/*
+Endpoint para consultar um produto específico da base de dados ATRAVÉS DO ID DO CLIENTE
+*/
+app.MapGet("/fornecedores/{id}", async (int id, LojaDbContext dbContext) =>
+{
+    var fornecedor = await dbContext.Fornecedores.FindAsync(id);
+    if (fornecedor == null)
+    {
+        return Results.NotFound($"Fornecedor com o ID {id} Não encontrado");
+    }
+
+    return Results.Ok(fornecedor);
+});
+
+/**/
+app.MapPut("/fornecedores/{id}", async (int id, LojaDbContext dbContext, Fornecedor updateFornecedor) =>
+{
+    var existingFornecedor = await dbContext.Fornecedores.FindAsync(id);
+    if (existingFornecedor == null)
+    {
+        return Results.NotFound($"Fornecedor com o ID {id} Não encontrado");
+    }
+    
+    existingFornecedor.Nome = updateFornecedor.Nome;
+    existingFornecedor.endereco = updateFornecedor.endereco;
+    existingFornecedor.email = updateFornecedor.email;
+    existingFornecedor.telefone = updateFornecedor.telefone;
+    existingFornecedor.cnpj = updateFornecedor.cnpj;
+    
+    await dbContext.SaveChangesAsync();
+    
+    return Results.Ok(existingFornecedor);
+});
 
 app.MapGet("/", () => "Hello World!");
 
