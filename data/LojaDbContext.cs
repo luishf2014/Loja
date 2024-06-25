@@ -6,7 +6,7 @@ namespace loja.data
     public class LojaDbContext : DbContext
     {
         public LojaDbContext(DbContextOptions<LojaDbContext> options) : base(options) { }
-        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Produto> Produtos { get; set; } /* Dbset representa as tabelas do meu Banco de dados */
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set;}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
