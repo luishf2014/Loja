@@ -98,3 +98,11 @@ C:\Users\Luis_\Desktop\Faculdade\c#\loja\obj\Debug\net8.0\loja.pdb
 C:\Users\Luis_\Desktop\Faculdade\c#\loja\obj\Debug\net8.0\loja.genruntimeconfig.cache
 C:\Users\Luis_\Desktop\Faculdade\c#\loja\obj\Debug\net8.0\ref\loja.dll
 C:\Users\Luis_\Desktop\Faculdade\c#\loja\obj\Debug\net8.0\loja.sourcelink.json
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Luis_\Desktop\Faculdade\c#\loja\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
